@@ -120,85 +120,8 @@ public class CSVController {
   
   ///////////////////////////////////////////////////////////////////////////
   
-  @RequestMapping(value = "/student" , method = RequestMethod.GET)
-  
-  public String template(Model m,@RequestParam("id") long studentId) {	//, RedirectAttributes redirectAttribute
-	  DeveloperTutorial obj = this.fileService.getStudent(studentId);
-	  System.out.println(studentId);
-	  System.out.println(obj);
-	  m.addAttribute("student",obj);
-	  m.addAttribute("standardDate", new Date());
-	  System.out.println(m.getAttribute("student"));
-	  return "template";
-	  
-//	  ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-//	    templateResolver.setSuffix(".html");
-//	    templateResolver.setTemplateMode(TemplateMode.HTML);
-//
-//	    TemplateEngine templateEngine = new TemplateEngine();
-//	    templateEngine.setTemplateResolver(templateResolver);
-//
-//	    Context context = new Context();
-//	    //context.setVariable("to", "Baeldung");
-//
-//	    return templateEngine.process("template",context);
-  
-  
-  }
-  
-//  public String parseThymeleafTemplate() {
-//	    ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-//	    templateResolver.setSuffix(".html");
-//	    templateResolver.setTemplateMode(TemplateMode.HTML);
-//
-//	    TemplateEngine templateEngine = new TemplateEngine();
-//	    templateEngine.setTemplateResolver(templateResolver);
-//
-//	    Context context = new Context();
-//	    //context.setVariable("to", "Baeldung");
-//
-//	    return templateEngine.process("template",context);
-//	}
-  
-  @RequestMapping(value = "/test" , method = RequestMethod.GET)
-  public void method(Model m) throws IOException {
-	  DeveloperTutorial obj = this.fileService.getStudent(1);
-	  System.out.println(1);
-	  System.out.println(obj);
-	  m.addAttribute("student",obj);
-	  m.addAttribute("standardDate", new Date());
-	  System.out.println(m.getAttribute("student"));
-	  //return "template";
-	  String outputFolder = System.getProperty("user.home") + File.separator + "thymeleaf.pdf";
-	    OutputStream outputStream = new FileOutputStream(outputFolder);
-
-	    ITextRenderer renderer = new ITextRenderer();
-	    renderer.setDocumentFromString("<h1>template</h1>");
-	    renderer.layout();
-	    renderer.createPDF(outputStream);
-
-	    outputStream.close();
-  }
-  public void generatePdfFromHtml(String html) throws IOException {
-	    String outputFolder = System.getProperty("user.home") + File.separator + "thymeleaf.pdf";
-	    OutputStream outputStream = new FileOutputStream(outputFolder);
-
-	    ITextRenderer renderer = new ITextRenderer();
-	    renderer.setDocumentFromString(html);
-	    renderer.layout();
-	    renderer.createPDF(outputStream);
-
-	    outputStream.close();
-	}
-  
-  
-  
-  
-  /////////////////////////////////////////////////////////////////////////////
-  
-  
 //  @RequestMapping(value = "/student" , method = RequestMethod.GET)
-// 
+//  
 //  public String template(Model m,@RequestParam("id") long studentId) {	//, RedirectAttributes redirectAttribute
 //	  DeveloperTutorial obj = this.fileService.getStudent(studentId);
 //	  System.out.println(studentId);
@@ -207,9 +130,84 @@ public class CSVController {
 //	  m.addAttribute("standardDate", new Date());
 //	  System.out.println(m.getAttribute("student"));
 //	  return "template";
-////	  redirectAttribute.addFlashAttribute("student", obj);
-////	  return "redirect/template";
+//	  
+////	  ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+////	    templateResolver.setSuffix(".html");
+////	    templateResolver.setTemplateMode(TemplateMode.HTML);
+////
+////	    TemplateEngine templateEngine = new TemplateEngine();
+////	    templateEngine.setTemplateResolver(templateResolver);
+////
+////	    Context context = new Context();
+////	    //context.setVariable("to", "Baeldung");
+////
+////	    return templateEngine.process("template",context);
+//  
+//  
 //  }
+//  
+////  public String parseThymeleafTemplate() {
+////	    ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+////	    templateResolver.setSuffix(".html");
+////	    templateResolver.setTemplateMode(TemplateMode.HTML);
+////
+////	    TemplateEngine templateEngine = new TemplateEngine();
+////	    templateEngine.setTemplateResolver(templateResolver);
+////
+////	    Context context = new Context();
+////	    //context.setVariable("to", "Baeldung");
+////
+////	    return templateEngine.process("template",context);
+////	}
+//  
+//  @RequestMapping(value = "/test" , method = RequestMethod.GET)
+//  public void method(Model m) throws IOException {
+//	  DeveloperTutorial obj = this.fileService.getStudent(1);
+//	  System.out.println(1);
+//	  System.out.println(obj);
+//	  m.addAttribute("student",obj);
+//	  m.addAttribute("standardDate", new Date());
+//	  System.out.println(m.getAttribute("student"));
+//	  //return "template";
+//	  String outputFolder = System.getProperty("user.home") + File.separator + "thymeleaf.pdf";
+//	    OutputStream outputStream = new FileOutputStream(outputFolder);
+//
+//	    ITextRenderer renderer = new ITextRenderer();
+//	    renderer.setDocumentFromString("template");
+//	    renderer.layout();
+//	    renderer.createPDF(outputStream);
+//
+//	    outputStream.close();
+//  }
+//  public void generatePdfFromHtml(String html) throws IOException {
+//	    String outputFolder = System.getProperty("user.home") + File.separator + "thymeleaf.pdf";
+//	    OutputStream outputStream = new FileOutputStream(outputFolder);
+//
+//	    ITextRenderer renderer = new ITextRenderer();
+//	    renderer.setDocumentFromString(html);
+//	    renderer.layout();
+//	    renderer.createPDF(outputStream);
+//
+//	    outputStream.close();
+//	}
+//  
+  
+  
+  
+  /////////////////////////////////////////////////////////////////////////////
+  
+  
+  @RequestMapping(value = "/student" , method = RequestMethod.GET)
+ 
+  public String template(Model m,@RequestParam("id") long studentId) {	//, RedirectAttributes redirectAttribute
+	  DeveloperTutorial obj = this.fileService.getStudent(studentId);
+	  System.out.println(studentId);
+	  System.out.println(obj);
+	  m.addAttribute("student",obj);
+	  m.addAttribute("standardDate", new Date());
+	  System.out.println(m.getAttribute("student"));
+	  return "template";
+  }
   
   
 
